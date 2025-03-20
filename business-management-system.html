@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .sheet-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .sheet-header {
+            background: #0f9d58;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px 5px 0 0;
+            font-weight: bold;
+        }
+        .tab-container {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+        .tab {
+            padding: 8px 16px;
+            cursor: pointer;
+            background: #f1f1f1;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            margin-right: 5px;
+            border-radius: 5px 5px 0 0;
+        }
+        .tab.active {
+            background: #4285F4;
+            color: white;
+            border-color: #4285F4;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .dashboard-widget {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: white;
+        }
+        .dashboard-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #4285F4;
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .form-container {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .form-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #4285F4;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        select, input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .btn {
+            background: #4285F4;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Business Management System - Google Sheets Structure</h1>
+    
+    <div class="sheet-container">
+        <div class="sheet-header">Dashboard</div>
+        <div class="dashboard-grid">
+            <div class="dashboard-widget">
+                <div class="dashboard-title">Sales Overview</div>
+                <table>
+                    <tr>
+                        <td>Today's Sales:</td>
+                        <td>₹25,000</td>
+                    </tr>
+                    <tr>
+                        <td>This Month:</td>
+                        <td>₹3,75,000</td>
+                    </tr>
+                    <tr>
+                        <td>Pending Payments:</td>
+                        <td>₹1,25,000</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="dashboard-widget">
+                <div class="dashboard-title">Purchase Overview</div>
+                <table>
+                    <tr>
+                        <td>Today's Purchases:</td>
+                        <td>₹18,000</td>
+                    </tr>
+                    <tr>
+                        <td>This Month:</td>
+                        <td>₹2,50,000</td>
+                    </tr>
+                    <tr>
+                        <td>Outstanding Payments:</td>
+                        <td>₹75,000</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="dashboard-widget">
+                <div class="dashboard-title">Inventory Status</div>
+                <table>
+                    <tr>
+                        <td>Total Products:</td>
+                        <td>125</td>
+                    </tr>
+                    <tr>
+                        <td>Low Stock Items:</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>Out of Stock:</td>
+                        <td>3</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="dashboard-widget">
+                <div class="dashboard-title">Profit/Loss (This Month)</div>
+                <table>
+                    <tr>
+                        <td>Total Revenue:</td>
+                        <td>₹3,75,000</td>
+                    </tr>
+                    <tr>
+                        <td>Total Expenses:</td>
+                        <td>₹2,80,000</td>
+                    </tr>
+                    <tr>
+                        <td>Net Profit:</td>
+                        <td>₹95,000</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="dashboard-widget">
+            <div class="dashboard-title">Pending Payments</div>
+            <table>
+                <tr>
+                    <th>Client Name</th>
+                    <th>Invoice No</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Due Date</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>Sharma Enterprises</td>
+                    <td>INV-2025-042</td>
+                    <td>05/03/2025</td>
+                    <td>₹35,000</td>
+                    <td>20/03/2025</td>
+                    <td>Pending</td>
+                </tr>
+                <tr>
+                    <td>Gupta Traders</td>
+                    <td>INV-2025-038</td>
+                    <td>28/02/2025</td>
+                    <td>₹42,500</td>
+                    <td>15/03/2025</td>
+                    <td>Overdue</td>
+                </tr>
+                <tr>
+                    <td>Patel & Sons</td>
+                    <td>INV-2025-045</td>
+                    <td>10/03/2025</td>
+                    <td>₹27,800</td>
+                    <td>25/03/2025</td>
+                    <td>Pending</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <div class="sheet-container">
+        <div class="sheet-header">Purchase Sheet</div>
+        <table>
+            <tr>
+                <th>Purchase ID</th>
+                <th>Date</th>
+                <th>Supplier</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Subtotal</th>
+                <th>GST (%)</th>
+                <th>GST Amount</th>
+                <th>Packaging</th>
+                <th>Total Amount</th>
+                <th>Payment Status</th>
+                <th>Balance</th>
+            </tr>
+            <tr>
+                <td>PUR-001</td>
+                <td>01/03/2025</td>
+                <td>Reliance Distributors</td>
+                <td>Product A</td>
+                <td>100</td>
+                <td>₹250</td>
+                <td>₹25,000</td>
+                <td>18%</td>
+                <td>₹4,500</td>
+                <td>₹500</td>
+                <td>₹30,000</td>
+                <td>Paid</td>
+                <td>₹0</td>
+            </tr>
+            <tr>
+                <td>PUR-002</td>
+                <td>05/03/2025</td>
+                <td>National Suppliers</td>
+                <td>Product B</td>
+                <td>50</td>
+                <td>₹300</td>
+                <td>₹15,000</td>
+                <td>12%</td>
+                <td>₹1,800</td>
+                <td>₹200</td>
+                <td>₹17,000</td>
+                <td>Partial</td>
+                <td>₹7,000</td>
+            </tr>
+            <tr>
+                <td>PUR-003</td>
+                <td>10/03/2025</td>
+                <td>Global Traders</td>
+                <td>Product C</td>
+                <td>200</td>
+                <td>₹150</td>
+                <td>₹30,000</td>
+                <td>5%</td>
+                <td>₹1,500</td>
+                <td>₹500</td>
+                <td>₹32,000</td>
+                <td>Pending</td>
+                <td>₹32,000</td>
+            </tr>
+        </table>
+        
+        <div class="form-container">
+            <div class="form-title">New Purchase Entry</div>
+            <div class="form-group">
+                <label>Date:</label>
+                <input type="date" value="2025-03-20">
+            </div>
+            <div class="form-group">
+                <label>Supplier:</label>
+                <select>
+                    <option>Select Supplier</option>
+                    <option>Reliance Distributors</option>
+                    <option>National Suppliers</option>
+                    <option>Global Traders</option>
+                    <option>+ Add New Supplier</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Product:</label>
+                <select>
+                    <option>Select Product</option>
+                    <option>Product A</option>
+                    <option>Product B</option>
+                    <option>Product C</option>
+                    <option>+ Add New Product</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Quantity:</label>
+                <input type="number" placeholder="Enter quantity">
+            </div>
+            <div class="form-group">
+                <label>Unit Price (₹):</label>
+                <input type="number" placeholder="Enter unit price">
+            </div>
+            <div class="form-group">
+                <label>GST (%):</label>
+                <select>
+                    <option>5%</option>
+                    <option>12%</option>
+                    <option>18%</option>
+                    <option>28%</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Packaging (₹):</label>
+                <input type="number" placeholder="Enter packaging cost">
+            </div>
+            <div>
+                <button class="btn">Save Purchase</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="sheet-container">
+        <div class="sheet-header">Sales Sheet</div>
+        <table>
+            <tr>
+                <th>Invoice No</th>
+                <th>Date</th>
+                <th>Customer</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Subtotal</th>
+                <th>GST (%)</th>
+                <th>GST Amount</th>
+                <th>Packaging</th>
+                <th>Total Amount</th>
+                <th>Payment Status</th>
+                <th>Advance</th>
+                <th>Balance</th>
+            </tr>
+            <tr>
+                <td>INV-2025-042</td>
+                <td>05/03/2025</td>
+                <td>Sharma Enterprises</td>
+                <td>Product A</td>
+                <td>50</td>
+                <td>₹350</td>
+                <td>₹17,500</td>
+                <td>18%</td>
+                <td>₹3,150</td>
+                <td>₹350</td>
+                <td>₹21,000</td>
+                <td>Partial</td>
+                <td>₹10,000</td>
+                <td>₹11,000</td>
+            </tr>
+            <tr>
+                <td>INV-2025-043</td>
+                <td>08/03/2025</td>
+                <td>Kumar Industries</td>
+                <td>Product B</td>
+                <td>20</td>
+                <td>₹450</td>
+                <td>₹9,000</td>
+                <td>12%</td>
+                <td>₹1,080</td>
+                <td>₹200</td>
+                <td>₹10,280</td>
+                <td>Paid</td>
+                <td>₹10,280</td>
+                <td>₹0</td>
+            </tr>
+            <tr>
+                <td>INV-2025-045</td>
+                <td>10/03/2025</td>
+                <td>Patel & Sons</td>
+                <td>Product C</td>
+                <td>65</td>
+                <td>₹280</td>
+                <td>₹18,200</td>
+                <td>5%</td>
+                <td>₹910</td>
+                <td>₹290</td>
+                <td>₹19,400</td>
+                <td>Pending</td>
+                <td>₹0</td>
+                <td>₹19,400</td>
+            </tr>
+        </table>
+        
+        <div class="form-container">
+            <div class="form-title">New Sales Entry</div>
+            <div class="form-group">
+                <label>Date:</label>
+                <input type="date" value="2025-03-20">
+            </div>
+            <div class="form-group">
+                <label>Customer:</label>
+                <select>
+                    <option>Select Customer</option>
+                    <option>Sharma Enterprises</option>
+                    <option>Kumar Industries</option>
+                    <option>Patel & Sons</option>
+                    <option>+ Add New Customer</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Product:</label>
+                <select>
+                    <option>Select Product</option>
+                    <option>Product A (Stock: 150)</option>
+                    <option>Product B (Stock: 80)</option>
+                    <option>Product C (Stock: 135)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Quantity:</label>
+                <input type="number" placeholder="Enter quantity">
+            </div>
+            <div class="form-group">
+                <label>Unit Price (₹):</label>
+                <input type="number" placeholder="Enter unit price">
+            </div>
+            <div class="form-group">
+                <label>GST (%):</label>
+                <select>
+                    <option>5%</option>
+                    <option>12%</option>
+                    <option>18%</option>
+                    <option>28%</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Packaging (₹):</label>
+                <input type="number" placeholder="Enter packaging cost">
+            </div>
+            <div class="form-group">
+                <label>Advance Payment (₹):</label>
+                <input type="number" placeholder="Enter advance amount">
+            </div>
+            <div>
+                <button class="btn">Generate Bill</button>
+                <button class="btn" style="background: #0f9d58;">Save Sale</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="sheet-container">
+        <div class="sheet-header">Inventory Sheet</div>
+        <table>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Opening Stock</th>
+                <th>Purchases</th>
+                <th>Sales</th>
+                <th>Current Stock</th>
+                <th>Purchase Price</th>
+                <th>Sale Price</th>
+                <th>Min Stock Level</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>PRD-001</td>
+                <td>Product A</td>
+                <td>100</td>
+                <td>100</td>
+                <td>50</td>
+                <td>150</td>
+                <td>₹250</td>
+                <td>₹350</td>
+                <td>50</td>
+                <td>In Stock</td>
+            </tr>
+            <tr>
+                <td>PRD-002</td>
+                <td>Product B</td>
+                <td>50</td>
+                <td>50</td>
+                <td>20</td>
+                <td>80</td>
+                <td>₹300</td>
+                <td>₹450</td>
+                <td>30</td>
+                <td>In Stock</td>
+            </tr>
+            <tr>
+                <td>PRD-003</td>
+                <td>Product C</td>
+                <td>0</td>
+                <td>200</td>
+                <td>65</td>
+                <td>135</td>
+                <td>₹150</td>
+                <td>₹280</td>
+                <td>40</td>
+                <td>In Stock</td>
+            </tr>
+            <tr>
+                <td>PRD-004</td>
+                <td>Product D</td>
+                <td>25</td>
+                <td>0</td>
+                <td>20</td>
+                <td>5</td>
+                <td>₹180</td>
+                <td>₹320</td>
+                <td>20</td>
+                <td>Low Stock</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="sheet-container">
+        <div class="sheet-header">Party Accounts</div>
+        <div class="tab-container">
+            <div class="tab active">Customers</div>
+            <div class="tab">Suppliers</div>
+        </div>
+        
+        <table>
+            <tr>
+                <th>Customer ID</th>
+                <th>Customer Name</th>
+                <th>Contact Person</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Outstanding Amount</th>
+                <th>Last Transaction</th>
+            </tr>
+            <tr>
+                <td>CUST-001</td>
+                <td>Sharma Enterprises</td>
+                <td>Rajesh Sharma</td>
+                <td>9876543210</td>
+                <td>rajesh@sharma.com</td>
+                <td>123, Main St, Delhi</td>
+                <td>₹35,000</td>
+                <td>05/03/2025</td>
+            </tr>
+            <tr>
+                <td>CUST-002</td>
+                <td>Kumar Industries</td>
+                <td>Priya Kumar</td>
+                <td>8765432109</td>
+                <td>priya@kumar.com</td>
+                <td>456, Park Ave, Mumbai</td>
+                <td>₹0</td>
+                <td>08/03/2025</td>
+            </tr>
+            <tr>
+                <td>CUST-003</td>
+                <td>Patel & Sons</td>
+                <td>Amit Patel</td>
+                <td>7654321098</td>
+                <td>amit@patel.com</td>
+                <td>789, Lake Rd, Ahmedabad</td>
+                <td>₹27,800</td>
+                <td>10/03/2025</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="sheet-container">
+        <div class="sheet-header">Profit & Loss</div>
+        <table>
+            <tr>
+                <th>Month</th>
+                <th>Total Sales</th>
+                <th>Cost of Goods</th>
+                <th>Gross Profit</th>
+                <th>Expenses</th>
+                <th>Net Profit</th>
+                <th>Profit Margin (%)</th>
+            </tr>
+            <tr>
+                <td>January 2025</td>
+                <td>₹3,25,000</td>
+                <td>₹2,40,000</td>
+                <td>₹85,000</td>
+                <td>₹35,000</td>
+                <td>₹50,000</td>
+                <td>15.4%</td>
+            </tr>
+            <tr>
+                <td>February 2025</td>
+                <td>₹3,50,000</td>
+                <td>₹2,60,000</td>
+                <td>₹90,000</td>
+                <td>₹35,000</td>
+                <td>₹55,000</td>
+                <td>15.7%</td>
+            </tr>
+            <tr>
+                <td>March 2025 (MTD)</td>
+                <td>₹3,75,000</td>
+                <td>₹2,80,000</td>
+                <td>₹95,000</td>
+                <td>₹35,000</td>
+                <td>₹60,000</td>
+                <td>16.0%</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
